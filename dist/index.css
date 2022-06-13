@@ -1,0 +1,2 @@
+#img_preview-container{background:hsla(0,0%,100%,.9);border:0;border-radius:10px;padding:10px;position:fixed!important;top:50%!important;transform:translateY(-50%);z-index:999}#img_preview-container img{display:block;height:auto;max-height:calc(100vh - 20px);width:auto}@media only screen and (max-height:864px){#img_preview-container{top:0!important;transform:none!important}}
+/*# sourceMappingURL=index.css.map */
