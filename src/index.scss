@@ -1,4 +1,4 @@
-#img_preview-container {
+.img_preview-container {
   position: fixed !important;
   top: 50% !important;
   transform: translateY(-50%);
@@ -9,7 +9,7 @@
   z-index: 999;
 }
 
-#img_preview-container img {
+.img_preview-container img {
   display: block;
   width: auto;
   height: auto;
@@ -17,7 +17,7 @@
 }
 
 @media only screen and (max-height:864px) {
-  #img_preview-container {
+  .img_preview-container {
     top: 0 !important;
     transform: none !important;
   }

@@ -7,10 +7,17 @@ export default class ImgPreview {
   }
 
   get defaultOptions() {
-    return { distanceFromCursor: { top: 10, left: 10 } };
+    return {
+      containerID: 'img_preview-container',
+      distanceFromCursor: { top: 10, left: 10 }
+    };
   }
 
   get containerID() {
+    return this.options.containerID;
+  }
+
+  get containerClass() {
     return 'img_preview-container';
   }
 
@@ -20,7 +27,8 @@ export default class ImgPreview {
 
   init() {
     let node = document.createElement('div');
-    node.setAttribute('id', this.containerID)
+    node.setAttribute('id', this.containerID);
+    node.classList.add(this.containerClass);
     node.append(document.createElement('img'));
     node.style.display = 'none';
     node.style.position = 'absolute';
