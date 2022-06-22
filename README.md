@@ -49,6 +49,7 @@ Build events to enlarge images:
 
 ```javascript
 let imgPreview = new ImgPreview();
+imgPreview.init();
 let anchors = document.querySelectorAll('ul li a');
 imgPreview.run(anchors);
 let imgs = document.querySelectorAll('ul li img');

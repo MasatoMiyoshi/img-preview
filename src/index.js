@@ -4,7 +4,6 @@ import './index.scss';
 export default class ImgPreview {
   constructor(options) {
     this.options = Object.assign(this.defaultOptions, options);
-    this.build();
   }
 
   get defaultOptions() {
@@ -19,7 +18,7 @@ export default class ImgPreview {
     return 'img_preview-container__loading';
   }
 
-  build() {
+  init() {
     let node = document.createElement('div');
     node.setAttribute('id', this.containerID)
     node.append(document.createElement('img'));
