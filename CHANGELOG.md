@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.3
+
+- Add webp.
+- Use standard class for url parser.
+
 ## 1.0.2
 
 - Add containerID option.
