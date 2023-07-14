@@ -73,11 +73,14 @@ export default class ImgPreview {
   }
 
   filterElements(elems) {
-    let regexp = new RegExp('.(gif|jpe?g|png|bmp|gif\?\d+|jpe?g\?\d+|png\?\d+|bmp\?\d+)$', 'i');
+    let regexp = new RegExp('.(gif|jpe?g|png|bmp)$', 'i');
     let arrayElems = [].map.call(elems, (elem) => { return elem; });
     let collection = arrayElems.filter((elem, index) => {
-      let url = this.extractUrl(elem);
-      return !! (url && url.match(regexp));
+      let url = undefined;
+      try {
+        url = new URL(this.extractUrl(elem), window.location);
+      } catch(e) {}
+      return !! (url && url.pathname.match(regexp));
     });
 
     return collection;
