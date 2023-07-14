@@ -73,7 +73,7 @@ export default class ImgPreview {
   }
 
   filterElements(elems) {
-    let regexp = new RegExp('.(gif|jpe?g|png|bmp)$', 'i');
+    let regexp = new RegExp('.(gif|jpe?g|png|bmp|webp)$', 'i');
     let arrayElems = [].map.call(elems, (elem) => { return elem; });
     let collection = arrayElems.filter((elem, index) => {
       let url = undefined;
