@@ -4,7 +4,7 @@
   "description": "A javascript library used to enlarge image",
   "source": "./src/index.js",
   "main": "./dist/index.js",
-  "module": "./dist/index.module.js",
+  "module": "./dist/index.module.mjs",
   "umd:main": "./dist/index.umd.js",
   "author": "Masato Miyoshi <miyoshi@sitebridge.co.jp>",
   "license": "MIT",
