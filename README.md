@@ -22,7 +22,7 @@ import ImgPreview from '@masatomiyoshi/img-preview'
 
 Import css:
 ```css
-@import '@masatomiyoshi/img-preview'
+@use '@masatomiyoshi/img-preview'
 ```
 
 Build html as follows.
