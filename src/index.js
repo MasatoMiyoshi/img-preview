@@ -1,4 +1,4 @@
-import anime from "animejs/lib/anime.es.js";
+import { animate, utils } from 'animejs';
 import './index.scss';
 
 export default class ImgPreview {
@@ -99,34 +99,31 @@ export default class ImgPreview {
   }
 
   onShow(container, target) {
-    anime.remove(target);
-    anime({
-      targets: target,
+    utils.remove(target);
+    animate(target, {
       opacity: 0.4,
       duration: 400,
-      easing: 'linear'
+      ease: 'linear'
     });
-    anime.remove(container.querySelector('img'));
+    utils.remove(container.querySelector('img'));
     container.querySelector('img').style.opacity = 0;
   }
 
   onLoad(img) {
-    anime.remove(img);
-    anime({
-      targets: img,
+    utils.remove(img);
+    animate(img, {
       opacity: 1,
       duration: 300,
-      easing: 'linear'
+      ease: 'linear'
     });
   }
 
   onHide(target) {
-    anime.remove(target);
-    anime({
-      targets: target,
+    utils.remove(target);
+    animate(target, {
       opacity: 1,
       duration: 300,
-      easing: 'linear'
+      ease: 'linear'
     });
   }
 }
