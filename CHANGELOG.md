@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.6
+
+- Add `extensions` option to configure allowed image extensions.
+
 ## 1.0.5
 
 - Update dependencies and devDependencies.

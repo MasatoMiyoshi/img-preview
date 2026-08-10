@@ -1,6 +1,8 @@
 import { animate, utils } from 'animejs';
 import './index.scss';
 
+const DEFAULT_EXTENSIONS = ['gif', 'jpg', 'jpeg', 'png', 'bmp', 'webp'];
+
 export default class ImgPreview {
   constructor(options) {
     this.options = Object.assign(this.defaultOptions, options);
@@ -9,7 +11,8 @@ export default class ImgPreview {
   get defaultOptions() {
     return {
       containerID: 'img_preview-container',
-      distanceFromCursor: { top: 10, left: 10 }
+      distanceFromCursor: { top: 10, left: 10 },
+      extensions: DEFAULT_EXTENSIONS.slice()
     };
   }
 
@@ -73,17 +76,46 @@ export default class ImgPreview {
   }
 
   filterElements(elems) {
-    let regexp = new RegExp('.(gif|jpe?g|png|bmp|webp)$', 'i');
+    let extensions = this.resolveExtensions();
     let arrayElems = [].map.call(elems, (elem) => { return elem; });
-    let collection = arrayElems.filter((elem, index) => {
+    let collection = arrayElems.filter((elem) => {
       let url = undefined;
       try {
         url = new URL(this.extractUrl(elem), window.location);
       } catch(e) {}
-      return !! (url && url.pathname.match(regexp));
+      return !! (url && this.isAllowedUrl(url, extensions));
     });
 
     return collection;
+  }
+
+  resolveExtensions() {
+    if (this.options.extensions === null) {
+      return null;
+    }
+
+    if (!Array.isArray(this.options.extensions)) {
+      return DEFAULT_EXTENSIONS.slice();
+    }
+
+    return this.options.extensions
+      .filter((extension) => typeof extension === 'string')
+      .map((extension) => extension.trim().replace(/^\./, '').toLowerCase())
+      .filter((extension) => extension.length > 0);
+  }
+
+  isAllowedUrl(url, extensions) {
+    if (extensions === null) {
+      return true;
+    }
+
+    let extension = this.extractExtension(url.pathname);
+    return !! (extension && extensions.includes(extension));
+  }
+
+  extractExtension(pathname) {
+    let matched = pathname.match(/\.([^./]+)$/);
+    return matched ? matched[1].toLowerCase() : null;
   }
 
   extractUrl(elem) {
