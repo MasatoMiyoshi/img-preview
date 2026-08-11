@@ -2,6 +2,10 @@
   "name": "@masatomiyoshi/img-preview",
   "version": "1.0.5",
   "description": "A javascript library used to enlarge image",
+  "engines": {
+    "node": ">=22.13",
+    "pnpm": ">=11.0"
+  },
   "source": "./src/index.js",
   "main": "./dist/index.js",
   "module": "./dist/index.module.mjs",

@@ -3,6 +3,7 @@
 ## 1.0.6
 
 - Add `extensions` option to configure allowed image extensions.
+- Migrate from npm to pnpm.
 
 ## 1.0.5
 

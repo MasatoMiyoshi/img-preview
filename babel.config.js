@@ -4,8 +4,5 @@ module.exports = {
       "targets": { "esmodules": true },
       "loose": true
     }]
-  ],
-  plugins: [
-    ["@babel/plugin-transform-private-methods", { "loose": true }],
   ]
 };

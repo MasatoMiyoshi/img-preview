@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [18.x, 20.x, 22.x, 24.x]
+        node: [22.x, 24.x, 26.x]
 
     name: node ${{ matrix.node }}
 
@@ -18,9 +18,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
       - name: Install
         run: |
-          npm install
+          pnpm install
       - name: Run test
         run: |
-          npm run test
+          pnpm run test
